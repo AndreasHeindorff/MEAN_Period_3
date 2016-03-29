@@ -1,0 +1,10 @@
+------------------------------------------------------------------------------------------------------------------------
+1. Explain, generally, what is meant by a NoSQL database.
+------------------------------------------------------------------------------------------------------------------------
+NoSQL Databases refferes to all the Databases that don't use queries to access stored data. They also don't follow
+the same guidelines as traditional relational databases which follow specific rules about schema-table standards.
+
+There different kinds of NoSQL databases, like:
+- Key-value store
+- Document
+- Graph

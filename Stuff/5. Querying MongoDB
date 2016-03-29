@@ -1,0 +1,39 @@
+------------------------------------------------------------------------------------------------------------------------
+5. Explain, using relevant examples, the strategy for querying MongoDB (all CRUD operations)
+------------------------------------------------------------------------------------------------------------------------
+
+Example DB: Find document with id.
+
+Look in the collection "jokes" and find the document with specific id. Return the document called "data".
+
+var connection = require('../db/db');
+var ObjectId = require('mongodb').ObjectID;
+
+var getJoke = function (id, callback) {
+    var db = getConnection();
+
+    db.collection('jokes').findOne({'_id': new ObjectId(id)}, function (err, data) {
+        if (err) {
+            callback(err);
+        }
+        callback(null, data);
+    });
+};
+
+Example REST: find all jokes
+
+Define endpoint "/jokes". Call function "allJokes" and output the returned data as json in the response.
+
+var router = express.Router();
+var jokes = require('../model/joke');
+
+router.get('/jokes', function (req, res, next) {
+    jokes.allJokes(function (err, data) {
+        if (err) {
+            res.json(getJsonError(err));
+        }
+        res.json(data);
+    });
+});
+
+See "Examples/Exercise 5" for the full example.
